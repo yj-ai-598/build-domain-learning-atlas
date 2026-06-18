@@ -1,0 +1,4 @@
+interface:
+  display_name: "领域知识星图"
+  short_description: "把任意新领域系统整理成知识文档库与交互式可视化学习星图"
+  default_prompt: "使用 $build-domain-learning-atlas 帮我系统学习一个新领域，并生成知识文档库和交互式知识星图。"
