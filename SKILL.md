@@ -86,6 +86,7 @@ Fix structural problems before building the visualization.
 
 Use the established orbital knowledge-atlas pattern unless the user requests another visualization:
 
+- Use a NotebookLM-style three-column workspace when AI conversation is a primary workflow.
 - Current document at the center.
 - H2 as compact persistent navigation labels.
 - H3/H4 as orbital nodes with full labels on hover, selection, or search.
@@ -124,12 +125,17 @@ Keep H1/H2/H3/H4 metadata and typography consistent across all nodes.
 
 ## Add Context-Aware AI Follow-Up
 
-For H3 topic nodes, place an AI chat region below the structured node content:
+When AI conversation is a primary workflow, use this layout:
 
-- Send the current document title, H3 title, ancestry path, and rendered node content as model context.
-- Keep the knowledge content visible above the chat so the answer remains grounded.
+- Left: collapsible source/document library.
+- Center: largest region for the atlas; show node details as a floating inspector only after selection.
+- Right: collapsible persistent AI conversation.
+
+Without a selected node, ground the conversation in the complete knowledge library. With a selected node, switch to focused context containing the current document title, node title, ancestry path, and rendered node content.
+
+- Keep the selected node visible as a removable context indicator above the chat.
 - Include concise starter questions such as examples, adjacent concepts, and reusable prompts.
-- Reset or clearly separate the conversation when the selected node changes.
+- Start a new conversation when the context changes between the full library and a node, or between nodes.
 - Stream answers when the provider supports it and show loading, failure, retry, and empty states.
 
 Use a configurable OpenAI-compatible provider instead of embedding credentials. The generated atlas must never contain an API key. Let each user configure:
@@ -162,7 +168,8 @@ Test at least:
 - One glossary table.
 - One long fenced template.
 - One title search, one body search, one exact search, one cross-file result, and one zero-result query.
-- One H3 AI configuration state, starter question, node-context request, streaming response, and API error state.
+- Three-column expanded state, both sidebars collapsed independently, no-selection state, and floating selected-node inspector.
+- One full-library chat state, one node-focused chat state, configuration, starter question, streaming response, and API error state.
 - Desktop and mobile layouts.
 
 Check screenshots for label collisions, clipped text, inspector overlap, unreadable dimming, and graph controls covering content.

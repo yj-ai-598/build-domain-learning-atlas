@@ -84,13 +84,16 @@ Render:
 
 ## Context-Aware AI Chat
 
-Show AI chat only when a concrete H3 topic is selected. Keep it visually separate from H3/H4 node controls:
+Use a NotebookLM-style three-column workspace:
 
-- Upper region: source knowledge content and metadata.
-- Lower region: AI chat, model status, settings, messages, and composer.
-- Context: document title, selected H3 title, ancestry, and complete node content.
+- Left sidebar: source documents, relationships, and library status; independently collapsible.
+- Center: the largest column, containing search, graph controls, atlas, and a floating node inspector.
+- Right sidebar: persistent AI chat; independently collapsible.
+- No selection: hide the node inspector and answer from the complete library context.
+- Node selection: show the floating inspector and focus chat context on the selected node.
+- Context indicator: show the focused node above chat with a clear action to return to full-library context.
 - Starter prompts: example, relationship to adjacent knowledge, and reusable prompt/template.
-- Node switch: cancel an in-flight request and reset the visible conversation.
+- Context switch: cancel an in-flight request and reset the visible conversation.
 
 Provider configuration:
 
@@ -125,5 +128,6 @@ For DeepSeek V4, use the official OpenAI-compatible `/chat/completions` endpoint
 | Search | exact, contains, body, cross-file, zero results |
 | Inspector | prose, list, glossary table, long template, empty parent |
 | AI chat | no-key state, configuration, context grounding, streaming, error, clear/remove |
+| Three-column workspace | left collapse, right collapse, center expansion, no-selection, floating inspector |
 | Responsive | desktop, narrow desktop, mobile |
 | Delivery | running preview, production build, self-contained HTML |
