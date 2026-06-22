@@ -358,7 +358,12 @@ Remove-Item -Recurse -Force "$HOME\.agents\skills\build-domain-learning-atlas"
 - 标题命中、正文命中与跨文档跳转
 - 响应式桌面和移动端布局
 
-仓库中的 [UI 知识星图参考文件](assets/ui-knowledge-atlas-reference.html) 展示了这套交互模型。下载后可直接用浏览器打开。
+仓库提供两个可直接用浏览器打开的单文件 HTML：
+
+- [UI 知识星图参考文件](assets/ui-knowledge-atlas-reference.html)：用于理解基础交互模型。
+- [健身领域学习图谱完整样例](assets/fitness-learning-atlas-example.html)：展示从领域文档体系、H1–H4 渐进内容到三栏交互星图的完整产出。
+
+健身样例包含 8 份文档与 173 个知识节点，支持全库搜索、跨文档跳转、H2/H3/H4 常驻标签、逐级独立内容、节点详情、移动端布局和可配置的上下文 AI 追问。
 
 ### 配置 DeepSeek V4
 
@@ -415,6 +420,7 @@ build-domain-learning-atlas/
 ├── agents/
 │   └── openai.yaml
 ├── assets/
+│   ├── fitness-learning-atlas-example.html
 │   └── ui-knowledge-atlas-reference.html
 ├── references/
 │   ├── atlas-interaction-spec.md
