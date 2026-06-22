@@ -134,9 +134,12 @@ For H3 topic nodes, place an AI chat region below the structured node content:
 
 Use a configurable OpenAI-compatible provider instead of embedding credentials. The generated atlas must never contain an API key. Let each user configure:
 
-- API base URL.
-- Model identifier.
+- Provider preset or custom provider.
+- Complete Chat Completions endpoint.
+- Exact model identifier.
 - API key.
+
+Treat these values as one connection profile. Do not hardcode the model merely because the API key is user-supplied. Provider presets may fill recommended values, but endpoint and model must remain editable. Label the expected protocol and authentication method, validate missing fields and malformed URLs, and only send provider-specific request parameters when the selected provider supports them.
 
 Store browser-only credentials in `sessionStorage` by default, provide a clear remove action, and explain that the key is sent directly to the configured model provider. For a public or production deployment, recommend a server-side proxy so API keys are not exposed to page scripts.
 

@@ -96,6 +96,11 @@ Provider configuration:
 
 - Never hardcode or commit API keys.
 - Require each user to enter their own key.
+- Collect the complete endpoint, exact model ID, and matching API key as one connection profile.
+- Offer provider presets only as editable defaults, plus a custom OpenAI-compatible option.
+- State the supported API protocol, authentication scheme, and streaming expectation.
+- Validate every required field before saving.
+- Avoid sending provider-specific parameters to a custom provider.
 - Default browser storage to `sessionStorage`, not source code or persistent local files.
 - Provide model and endpoint configuration when the atlas is intended for reuse.
 - Explain that production deployments should use a server-side proxy.

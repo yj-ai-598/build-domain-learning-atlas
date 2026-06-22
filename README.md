@@ -363,7 +363,16 @@ Remove-Item -Recurse -Force "$HOME\.agents\skills\build-domain-learning-atlas"
 - 快速模型：`deepseek-v4-flash`
 - API 地址：`https://api.deepseek.com/chat/completions`
 
-点击任意 H3 节点，在右侧详情下方打开“AI 深挖”，填写你自己的 DeepSeek API Key 即可。每位使用者都需要自行申请和配置 Key，仓库不包含任何密钥。
+点击任意 H3 节点，在右侧详情下方打开“AI 深挖”，配置你准备使用的模型服务。每位使用者都需要自行申请凭证，仓库不包含任何密钥。
+
+连接配置不会锁死模型。用户需要确认并提供一整组信息：
+
+1. 服务商预设，或选择自定义 OpenAI-compatible 接口。
+2. 完整的 Chat Completions API Endpoint。
+3. 服务商文档中标注的准确 Model ID。
+4. 与该服务商匹配的 API Key。
+
+DeepSeek 预设会自动填写当前推荐值，但 Endpoint 和 Model ID 仍可编辑。自定义接口使用 Bearer Token、OpenAI-compatible Chat Completions 和流式响应格式。
 
 浏览器版本把 Key 保存在当前标签页的 `sessionStorage` 中，关闭标签页后会清除。请求会从浏览器直接发送给 DeepSeek。公开部署或正式产品应改用服务端代理，避免 API Key 暴露给页面脚本。
 
