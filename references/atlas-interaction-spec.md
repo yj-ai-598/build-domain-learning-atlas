@@ -6,8 +6,9 @@
 2. Visual hierarchy
 3. Search behavior
 4. Inspector rendering
-5. Responsive behavior
-6. QA matrix
+5. Context-aware AI chat
+6. Responsive behavior
+7. QA matrix
 
 ## Information Model
 
@@ -81,6 +82,26 @@ Render:
 - Fenced prompt templates as structured groups.
 - Empty parents as child outlines.
 
+## Context-Aware AI Chat
+
+Show AI chat only when a concrete H3 topic is selected. Keep it visually separate from H3/H4 node controls:
+
+- Upper region: source knowledge content and metadata.
+- Lower region: AI chat, model status, settings, messages, and composer.
+- Context: document title, selected H3 title, ancestry, and complete node content.
+- Starter prompts: example, relationship to adjacent knowledge, and reusable prompt/template.
+- Node switch: cancel an in-flight request and reset the visible conversation.
+
+Provider configuration:
+
+- Never hardcode or commit API keys.
+- Require each user to enter their own key.
+- Default browser storage to `sessionStorage`, not source code or persistent local files.
+- Provide model and endpoint configuration when the atlas is intended for reuse.
+- Explain that production deployments should use a server-side proxy.
+
+For DeepSeek V4, use the official OpenAI-compatible `/chat/completions` endpoint, stream visible answer content, and do not display hidden chain-of-thought.
+
 ## Responsive Behavior
 
 - Close the file sidebar by default below 720px.
@@ -98,5 +119,6 @@ Render:
 | Graph | all levels, satellites, labels, overlap, pan/zoom |
 | Search | exact, contains, body, cross-file, zero results |
 | Inspector | prose, list, glossary table, long template, empty parent |
+| AI chat | no-key state, configuration, context grounding, streaming, error, clear/remove |
 | Responsive | desktop, narrow desktop, mobile |
 | Delivery | running preview, production build, self-contained HTML |

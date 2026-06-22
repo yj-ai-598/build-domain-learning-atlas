@@ -7,6 +7,7 @@
 - 可缩放、可搜索的交互式知识星图
 - 跨文档关系与 Markdown 结构化展示
 - 全量文档结构检查与可视化质量验证
+- H3 知识点下的上下文 AI 追问
 
 它不是简单地生成一篇长文章，而是把知识组织成一套能够持续学习和使用的系统。
 
@@ -347,11 +348,26 @@ Remove-Item -Recurse -Force "$HOME\.agents\skills\build-domain-learning-atlas"
 - 其他文档作为外围关联节点
 - 缩放、拖拽、文件切换与层级筛选
 - 节点详情与 Markdown 段落、列表、表格展示
+- H3 节点内置 AI 对话框，可围绕当前知识点继续提问
 - 全文档搜索、结果数量和搜索词高亮
 - 标题命中、正文命中与跨文档跳转
 - 响应式桌面和移动端布局
 
 仓库中的 [UI 知识星图参考文件](assets/ui-knowledge-atlas-reference.html) 展示了这套交互模型。下载后可直接用浏览器打开。
+
+### 配置 DeepSeek V4
+
+参考星图默认支持 DeepSeek V4：
+
+- 默认模型：`deepseek-v4-pro`
+- 快速模型：`deepseek-v4-flash`
+- API 地址：`https://api.deepseek.com/chat/completions`
+
+点击任意 H3 节点，在右侧详情下方打开“AI 深挖”，填写你自己的 DeepSeek API Key 即可。每位使用者都需要自行申请和配置 Key，仓库不包含任何密钥。
+
+浏览器版本把 Key 保存在当前标签页的 `sessionStorage` 中，关闭标签页后会清除。请求会从浏览器直接发送给 DeepSeek。公开部署或正式产品应改用服务端代理，避免 API Key 暴露给页面脚本。
+
+DeepSeek 模型名和接口可能更新，生成新星图时应以 [DeepSeek 官方 API 文档](https://api-docs.deepseek.com/) 为准。
 
 ## 文档检查脚本
 

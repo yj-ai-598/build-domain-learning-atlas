@@ -92,6 +92,7 @@ Use the established orbital knowledge-atlas pattern unless the user requests ano
 - Other documents as outer satellites.
 - Cross-document links based on shared concepts.
 - File switcher, depth control, zoom/pan, node inspector, and responsive layout.
+- Context-aware AI follow-up chat below H3 node content.
 
 Search must be explanatory:
 
@@ -121,6 +122,32 @@ The inspector must support:
 
 Keep H1/H2/H3/H4 metadata and typography consistent across all nodes.
 
+## Add Context-Aware AI Follow-Up
+
+For H3 topic nodes, place an AI chat region below the structured node content:
+
+- Send the current document title, H3 title, ancestry path, and rendered node content as model context.
+- Keep the knowledge content visible above the chat so the answer remains grounded.
+- Include concise starter questions such as examples, adjacent concepts, and reusable prompts.
+- Reset or clearly separate the conversation when the selected node changes.
+- Stream answers when the provider supports it and show loading, failure, retry, and empty states.
+
+Use a configurable OpenAI-compatible provider instead of embedding credentials. The generated atlas must never contain an API key. Let each user configure:
+
+- API base URL.
+- Model identifier.
+- API key.
+
+Store browser-only credentials in `sessionStorage` by default, provide a clear remove action, and explain that the key is sent directly to the configured model provider. For a public or production deployment, recommend a server-side proxy so API keys are not exposed to page scripts.
+
+When DeepSeek V4 is requested, use the current official model identifiers and API format. As of June 2026, the defaults are:
+
+- Base URL: `https://api.deepseek.com`
+- Model: `deepseek-v4-pro`
+- Faster option: `deepseek-v4-flash`
+
+Verify provider model names against official documentation because they can change.
+
 ## Verify And Iterate
 
 Test at least:
@@ -132,6 +159,7 @@ Test at least:
 - One glossary table.
 - One long fenced template.
 - One title search, one body search, one exact search, one cross-file result, and one zero-result query.
+- One H3 AI configuration state, starter question, node-context request, streaming response, and API error state.
 - Desktop and mobile layouts.
 
 Check screenshots for label collisions, clipped text, inspector overlap, unreadable dimming, and graph controls covering content.
